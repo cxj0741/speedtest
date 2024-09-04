@@ -13,51 +13,120 @@ import { Loader2 } from 'lucide-react'
 
 // 端点列表
 const dataCenters = [
-  { name: 'Johannesburg (South Africa)', url: 'https://africa-south1-5tkroniexa-bq.a.run.app/api/ping', geography: 'Africa', region: 'South Africa' },
-  { name: 'Cape Town (Africa)', url: 'https://ec2.af-south-1.amazonaws.com/ping', geography: 'Africa', region: 'South Africa' },
-  { name: 'Cairo (Egypt)', url: 'https://teg-speedtest.tools.gcore.com/speedtest-backend/empty.php?cors=true', geography: 'Africa', region: 'Egypt' },
-  { name: 'Lagos (Nigeria)', url: 'https://lgs-speedtest.tools.gcore.com/speedtest-backend/empty.php?cors=true', geography: 'Africa', region: 'Nigeria' },
-  { name: 'Changhua County (Taiwan)', url: 'https://asia-east1-5tkroniexa-de.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Taiwan' },
-  { name: 'Hong Kong', url: 'https://asia-east2-5tkroniexa-df.a.run.app/api/ping', geography: 'China', region: 'Hong Kong' },
-  { name: 'Tokyo', url: 'https://asia-northeast1-5tkroniexa-an.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Japan' },
-  { name: 'Osaka', url: 'https://asia-northeast2-5tkroniexa-dt.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Japan' },
-  { name: 'Seoul', url: 'https://asia-northeast3-5tkroniexa-du.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Korea Central' },
-  { name: 'Mumbai', url: 'https://asia-south1-5tkroniexa-el.a.run.app/api/ping', geography: 'Asia Pacific', region: 'India West' },
-  { name: 'Delhi', url: 'https://asia-south2-5tkroniexa-em.a.run.app/api/ping', geography: 'Asia Pacific', region: 'India North' },
-  { name: 'Singapore', url: 'https://asia-southeast1-5tkroniexa-as.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Southeast Asia' },
-  { name: 'Jakarta', url: 'https://asia-southeast2-5tkroniexa-et.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Indonesia' },
-  { name: 'Sydney', url: 'https://australia-southeast1-5tkroniexa-ts.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Australia East' },
-  { name: 'Melbourne', url: 'https://australia-southeast2-5tkroniexa-km.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Australia Central' },
-  { name: 'Warsaw', url: 'https://europe-central2-5tkroniexa-lm.a.run.app/api/ping', geography: 'Europe', region: 'Poland Central' },
-  { name: 'Finland', url: 'https://europe-north1-5tkroniexa-lz.a.run.app/api/ping', geography: 'Europe', region: 'Finland' },
-  { name: 'Madrid', url: 'https://europe-southwest1-5tkroniexa-no.a.run.app/api/ping', geography: 'Europe', region: 'Spain Central' },
-  { name: 'Belgium', url: 'https://europe-west1-5tkroniexa-ew.a.run.app/api/ping', geography: 'Europe', region: 'Belgium Central' },
-  { name: 'Berlin', url: 'https://europe-west10-5tkroniexa-oe.a.run.app/api/ping', geography: 'Europe', region: 'Germany Central' },
-  { name: 'Turin', url: 'https://europe-west12-5tkroniexa-og.a.run.app/api/ping', geography: 'Europe', region: 'Italy Northwest' },
-  { name: 'London', url: 'https://europe-west2-5tkroniexa-nw.a.run.app/api/ping', geography: 'Europe', region: 'UK South' },
-  { name: 'Frankfurt', url: 'https://europe-west3-5tkroniexa-ey.a.run.app/api/ping', geography: 'Europe', region: 'Germany West Central' },
-  { name: 'Netherlands', url: 'https://europe-west4-5tkroniexa-ez.a.run.app/api/ping', geography: 'Europe', region: 'Netherlands' },
-  { name: 'Zürich', url: 'https://europe-west6-5tkroniexa-oa.a.run.app/api/ping', geography: 'Europe', region: 'Switzerland North' },
-  { name: 'Milan', url: 'https://europe-west8-5tkroniexa-oc.a.run.app/api/ping', geography: 'Europe', region: 'Italy North' },
-  { name: 'Paris', url: 'https://europe-west9-5tkroniexa-od.a.run.app/api/ping', geography: 'Europe', region: 'France Central' },
-  { name: 'Doha', url: 'https://me-central1-5tkroniexa-ww.a.run.app/api/ping', geography: 'Middle East', region: 'Qatar' },
-  { name: 'Dammam', url: 'https://me-central2-5tkroniexa-wx.a.run.app/api/ping', geography: 'Middle East', region: 'Saudi Arabia' },
-  { name: 'Tel Aviv', url: 'https://me-west1-5tkroniexa-zf.a.run.app/api/ping', geography: 'Middle East', region: 'Israel' },
-  { name: 'Montreal', url: 'https://northamerica-northeast1-5tkroniexa-nn.a.run.app/api/ping', geography: 'North America', region: 'Canada East' },
-  { name: 'Toronto', url: 'https://northamerica-northeast2-5tkroniexa-pd.a.run.app/api/ping', geography: 'North America', region: 'Canada Central' },
-  { name: 'São Paulo', url: 'https://southamerica-east1-5tkroniexa-rj.a.run.app/api/ping', geography: 'South America', region: 'Brazil South' },
-  { name: 'Iowa', url: 'https://us-central1-5tkroniexa-uc.a.run.app/api/ping', geography: 'North America', region: 'Central US' },
-  { name: 'South Carolina', url: 'https://us-east1-5tkroniexa-ue.a.run.app/api/ping', geography: 'North America', region: 'East US' },
-  { name: 'Virginia', url: 'https://us-east4-5tkroniexa-uk.a.run.app/api/ping', geography: 'North America', region: 'East US' },
-  { name: 'Ohio', url: 'https://us-east5-5tkroniexa-ul.a.run.app/api/ping', geography: 'North America', region: 'East US 2' },
-  { name: 'Texas', url: 'https://us-south1-5tkroniexa-vp.a.run.app/api/ping', geography: 'North America', region: 'South Central US' },
-  { name: 'Oregon', url: 'https://us-west1-5tkroniexa-uw.a.run.app/api/ping', geography: 'North America', region: 'West US' },
-  { name: 'California', url: 'https://us-west2-5tkroniexa-wl.a.run.app/api/ping', geography: 'North America', region: 'West US 2' },
-  { name: 'Utah', url: 'https://us-west3-5tkroniexa-wm.a.run.app/api/ping', geography: 'North America', region: 'West US 3' },
-  { name: 'Nevada', url: 'https://us-west4-5tkroniexa-wn.a.run.app/api/ping', geography: 'North America', region: 'West US' },
-  { name: 'Buenos Aires (Argentina)', url: 'https://syt-speedtest.tools.gcore.com/speedtest-backend/empty.php?cors=true', geography: 'South America', region: 'Argentina' },
-  { name: 'AWS China Beijing', url: 'https://ec2.cn-north-1.amazonaws.com.cn/ping', geography: 'China', region: 'Beijing' },
-  { name: 'AWS China Ningxia', url: 'https://ec2.cn-northwest-1.amazonaws.com.cn/ping', geography: 'China', region: 'Ningxia' },
+  { name: 'US East (N. Virginia)', url: 'https://ec2.us-east-1.amazonaws.com/ping', geography: 'North America', region: 'US East', provider: 'AWS' },
+  { name: 'US East (Ohio)', url: 'https://ec2.us-east-2.amazonaws.com/ping', geography: 'North America', region: 'US East', provider: 'AWS' },
+  { name: 'US West (N. California)', url: 'https://ec2.us-west-1.amazonaws.com/ping', geography: 'North America', region: 'US West', provider: 'AWS' },
+  { name: 'US West (Oregon)', url: 'https://ec2.us-west-2.amazonaws.com/ping', geography: 'North America', region: 'US West', provider: 'AWS' },
+  { name: 'Africa (Cape Town)', url: 'https://ec2.af-south-1.amazonaws.com/ping', geography: 'Africa', region: 'South Africa', provider: 'AWS' },
+  { name: 'Asia Pacific (Hong Kong)', url: 'https://ec2.ap-east-1.amazonaws.com/ping', geography: 'China', region: 'Hong Kong', provider: 'AWS' },
+  { name: 'Asia Pacific (Hyderabad)', url: 'https://ec2.ap-south-2.amazonaws.com/ping', geography: 'Asia Pacific', region: 'India', provider: 'AWS' },
+  { name: 'Asia Pacific (Jakarta)', url: 'https://ec2.ap-southeast-3.amazonaws.com/ping', geography: 'Asia Pacific', region: 'Indonesia', provider: 'AWS' },
+  { name: 'Asia Pacific (Melbourne)', url: 'https://ec2.ap-southeast-4.amazonaws.com/ping', geography: 'Asia Pacific', region: 'Australia', provider: 'AWS' },
+  { name: 'Asia Pacific (Mumbai)', url: 'https://ec2.ap-south-1.amazonaws.com/ping', geography: 'Asia Pacific', region: 'India', provider: 'AWS' },
+  { name: 'Asia Pacific (Osaka)', url: 'https://ec2.ap-northeast-3.amazonaws.com/ping', geography: 'Asia Pacific', region: 'Japan', provider: 'AWS' },
+  { name: 'Asia Pacific (Seoul)', url: 'https://ec2.ap-northeast-2.amazonaws.com/ping', geography: 'Asia Pacific', region: 'Korea', provider: 'AWS' },
+  { name: 'Asia Pacific (Singapore)', url: 'https://ec2.ap-southeast-1.amazonaws.com/ping', geography: 'Asia Pacific', region: 'Singapore', provider: 'AWS' },
+  { name: 'Asia Pacific (Sydney)', url: 'https://ec2.ap-southeast-2.amazonaws.com/ping', geography: 'Asia Pacific', region: 'Australia', provider: 'AWS' },
+  { name: 'Asia Pacific (Tokyo)', url: 'https://ec2.ap-northeast-1.amazonaws.com/ping', geography: 'Asia Pacific', region: 'Japan', provider: 'AWS' },
+  { name: 'Canada (Central)', url: 'https://ec2.ca-central-1.amazonaws.com/ping', geography: 'North America', region: 'Canada', provider: 'AWS' },
+  { name: 'Canada (Calgary)', url: 'https://ec2.ca-west-1.amazonaws.com/ping', geography: 'North America', region: 'Canada', provider: 'AWS' },
+  { name: 'Europe (Frankfurt)', url: 'https://ec2.eu-central-1.amazonaws.com/ping', geography: 'Europe', region: 'Germany', provider: 'AWS' },
+  { name: 'Europe (Ireland)', url: 'https://ec2.eu-west-1.amazonaws.com/ping', geography: 'Europe', region: 'Ireland', provider: 'AWS' },
+  { name: 'Europe (London)', url: 'https://ec2.eu-west-2.amazonaws.com/ping', geography: 'Europe', region: 'UK', provider: 'AWS' },
+  { name: 'Europe (Milan)', url: 'https://ec2.eu-south-1.amazonaws.com/ping', geography: 'Europe', region: 'Italy', provider: 'AWS' },
+  { name: 'Europe (Paris)', url: 'https://ec2.eu-west-3.amazonaws.com/ping', geography: 'Europe', region: 'France', provider: 'AWS' },
+  { name: 'Europe (Spain)', url: 'https://ec2.eu-south-2.amazonaws.com/ping', geography: 'Europe', region: 'Spain', provider: 'AWS' },
+  { name: 'Europe (Stockholm)', url: 'https://ec2.eu-north-1.amazonaws.com/ping', geography: 'Europe', region: 'Sweden', provider: 'AWS' },
+  { name: 'Europe (Zurich)', url: 'https://ec2.eu-central-2.amazonaws.com/ping', geography: 'Europe', region: 'Switzerland', provider: 'AWS' },
+  { name: 'Middle East (Bahrain)', url: 'https://ec2.me-south-1.amazonaws.com/ping', geography: 'Middle East', region: 'Bahrain', provider: 'AWS' },
+  { name: 'Middle East (UAE)', url: 'https://ec2.me-central-1.amazonaws.com/ping', geography: 'Middle East', region: 'UAE', provider: 'AWS' },
+  { name: 'South America (São Paulo)', url: 'https://ec2.sa-east-1.amazonaws.com/ping', geography: 'South America', region: 'Brazil', provider: 'AWS' },
+  { name: 'Israel (Tel Aviv)', url: 'https://ec2.il-central-1.amazonaws.com/ping', geography: 'Middle East', region: 'Israel', provider: 'AWS' },
+  { name: 'AWS GovCloud (US-East)', url: 'https://ec2.us-gov-east-1.amazonaws.com/ping', geography: 'North America', region: 'US GovCloud', provider: 'AWS' },
+  { name: 'AWS GovCloud (US-West)', url: 'https://ec2.us-gov-west-1.amazonaws.com/ping', geography: 'North America', region: 'US GovCloud', provider: 'AWS' },
+
+   // Azure 数据中心信息
+   { name: 'Australia Central', url: 'https://s3australiacentral.blob.core.windows.net/public/latency-test.json', geography: 'Asia Pacific', region: 'Australia', provider: 'Azure' },
+   { name: 'Australia East', url: 'https://s3australiaeast.blob.core.windows.net/public/latency-test.json', geography: 'Asia Pacific', region: 'Australia', provider: 'Azure' },
+   { name: 'Australia Southeast', url: 'https://s3australiasoutheast.blob.core.windows.net/public/latency-test.json', geography: 'Asia Pacific', region: 'Australia', provider: 'Azure' },
+   { name: 'Central India', url: 'https://s3centralindia.blob.core.windows.net/public/latency-test.json', geography: 'Asia Pacific', region: 'India', provider: 'Azure' },
+   { name: 'East Asia', url: 'https://s3eastasia.blob.core.windows.net/public/latency-test.json', geography: 'Asia Pacific', region: 'East Asia', provider: 'Azure' },
+   { name: 'Japan East', url: 'https://s3japaneast.blob.core.windows.net/public/latency-test.json', geography: 'Asia Pacific', region: 'Japan', provider: 'Azure' },
+   { name: 'Japan West', url: 'https://s3japanwest.blob.core.windows.net/public/latency-test.json', geography: 'Asia Pacific', region: 'Japan', provider: 'Azure' },
+   { name: 'Korea Central', url: 'https://s3koreacentral.blob.core.windows.net/public/latency-test.json', geography: 'Asia Pacific', region: 'Korea', provider: 'Azure' },
+   { name: 'Korea South', url: 'https://s3koreasouth.blob.core.windows.net/public/latency-test.json', geography: 'Asia Pacific', region: 'Korea', provider: 'Azure' },
+   { name: 'Southeast Asia', url: 'https://s3southeastasia.blob.core.windows.net/public/latency-test.json', geography: 'Asia Pacific', region: 'Southeast Asia', provider: 'Azure' },
+   { name: 'South India', url: 'https://s3southindia.blob.core.windows.net/public/latency-test.json', geography: 'Asia Pacific', region: 'India', provider: 'Azure' },
+   { name: 'West India', url: 'https://s3westindia.blob.core.windows.net/public/latency-test.json', geography: 'Asia Pacific', region: 'India', provider: 'Azure' },
+   { name: 'France Central', url: 'https://s3francecentral.blob.core.windows.net/public/latency-test.json', geography: 'Europe', region: 'France', provider: 'Azure' },
+   { name: 'Germany West Central', url: 'https://s3germanywestcentral.blob.core.windows.net/public/latency-test.json', geography: 'Europe', region: 'Germany', provider: 'Azure' },
+   { name: 'Italy North', url: 'https://s3italynorth.blob.core.windows.net/public/latency-test.json', geography: 'Europe', region: 'Italy', provider: 'Azure' },
+   { name: 'North Europe', url: 'https://s3northeurope.blob.core.windows.net/public/latency-test.json', geography: 'Europe', region: 'North Europe', provider: 'Azure' },
+   { name: 'Norway East', url: 'https://s3norwayeast.blob.core.windows.net/public/latency-test.json', geography: 'Europe', region: 'Norway', provider: 'Azure' },
+   { name: 'Poland Central', url: 'https://s3polandcentral.blob.core.windows.net/public/latency-test.json', geography: 'Europe', region: 'Poland', provider: 'Azure' },
+   { name: 'Sweden Central', url: 'https://s3swedencentral.blob.core.windows.net/public/latency-test.json', geography: 'Europe', region: 'Sweden', provider: 'Azure' },
+   { name: 'Switzerland North', url: 'https://s3switzerlandnorth.blob.core.windows.net/public/latency-test.json', geography: 'Europe', region: 'Switzerland', provider: 'Azure' },
+   { name: 'UK South', url: 'https://s3uksouth.blob.core.windows.net/public/latency-test.json', geography: 'Europe', region: 'United Kingdom', provider: 'Azure' },
+   { name: 'UK West', url: 'https://s3ukwest.blob.core.windows.net/public/latency-test.json', geography: 'Europe', region: 'United Kingdom', provider: 'Azure' },
+   { name: 'West Europe', url: 'https://s3westeurope.blob.core.windows.net/public/latency-test.json', geography: 'Europe', region: 'West Europe', provider: 'Azure' },
+   { name: 'Central US', url: 'https://s3centralus.blob.core.windows.net/public/latency-test.json', geography: 'North America', region: 'United States', provider: 'Azure' },
+   { name: 'East US', url: 'https://s3eastus.blob.core.windows.net/public/latency-test.json', geography: 'North America', region: 'United States', provider: 'Azure' },
+   { name: 'East US 2', url: 'https://s3eastus2.blob.core.windows.net/public/latency-test.json', geography: 'North America', region: 'United States', provider: 'Azure' },
+   { name: 'North Central US', url: 'https://s3northcentralus.blob.core.windows.net/public/latency-test.json', geography: 'North America', region: 'United States', provider: 'Azure' },
+   { name: 'South Central US', url: 'https://s3southcentralus.blob.core.windows.net/public/latency-test.json', geography: 'North America', region: 'United States', provider: 'Azure' },
+   { name: 'West Central US', url: 'https://s3westcentralus.blob.core.windows.net/public/latency-test.json', geography: 'North America', region: 'United States', provider: 'Azure' },
+   { name: 'West US', url: 'https://s3westus.blob.core.windows.net/public/latency-test.json', geography: 'North America', region: 'United States', provider: 'Azure' },
+   { name: 'West US 2', url: 'https://s3westus2.blob.core.windows.net/public/latency-test.json', geography: 'North America', region: 'United States', provider: 'Azure' },
+   { name: 'West US 3', url: 'https://s3westus3.blob.core.windows.net/public/latency-test.json', geography: 'North America', region: 'United States', provider: 'Azure' },
+   { name: 'Israel Central', url: 'https://s3israelcentral.blob.core.windows.net/public/latency-test.json', geography: 'Middle East', region: 'Israel', provider: 'Azure' },
+   { name: 'Qatar Central', url: 'https://s3qatarcentral.blob.core.windows.net/public/latency-test.json', geography: 'Middle East', region: 'Qatar', provider: 'Azure' },
+   { name: 'UAE North', url: 'https://s3uaenorth.blob.core.windows.net/public/latency-test.json', geography: 'Middle East', region: 'United Arab Emirates', provider: 'Azure' },
+   { name: 'Canada Central', url: 'https://s3canadacentral.blob.core.windows.net/public/latency-test.json', geography: 'North America', region: 'Canada', provider: 'Azure' },
+   { name: 'Canada East', url: 'https://s3canadaeast.blob.core.windows.net/public/latency-test.json', geography: 'North America', region: 'Canada', provider: 'Azure' },
+   { name: 'Brazil South', url: 'https://s3brazilsouth.blob.core.windows.net/public/latency-test.json', geography: 'South America', region: 'Brazil', provider: 'Azure' },
+   { name: 'South Africa North', url: 'https://s3southafricanorth.blob.core.windows.net/public/latency-test.json', geography: 'Africa', region: 'South Africa', provider: 'Azure' },
+
+    // GCP 数据中心信息
+  { name: 'South Africa (Johannesburg)', url: 'https://africa-south1-5tkroniexa-bq.a.run.app/api/ping', geography: 'Africa', region: 'South Africa', provider: 'GCP' },
+  { name: 'Taiwan (Changhua County)', url: 'https://asia-east1-5tkroniexa-de.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Taiwan', provider: 'GCP' },
+  { name: 'Hong Kong', url: 'https://asia-east2-5tkroniexa-df.a.run.app/api/ping', geography: 'China', region: 'Hong Kong', provider: 'GCP' },
+  { name: 'Japan (Tokyo)', url: 'https://asia-northeast1-5tkroniexa-an.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Japan', provider: 'GCP' },
+  { name: 'Japan (Osaka)', url: 'https://asia-northeast2-5tkroniexa-dt.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Japan', provider: 'GCP' },
+  { name: 'South Korea (Seoul)', url: 'https://asia-northeast3-5tkroniexa-du.a.run.app/api/ping', geography: 'Asia Pacific', region: 'South Korea', provider: 'GCP' },
+  { name: 'India (Mumbai)', url: 'https://asia-south1-5tkroniexa-el.a.run.app/api/ping', geography: 'Asia Pacific', region: 'India', provider: 'GCP' },
+  { name: 'India (Delhi)', url: 'https://asia-south2-5tkroniexa-em.a.run.app/api/ping', geography: 'Asia Pacific', region: 'India', provider: 'GCP' },
+  { name: 'Singapore (Jurong West)', url: 'https://asia-southeast1-5tkroniexa-as.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Singapore', provider: 'GCP' },
+  { name: 'Indonesia (Jakarta)', url: 'https://asia-southeast2-5tkroniexa-et.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Indonesia', provider: 'GCP' },
+  { name: 'Australia (Sydney)', url: 'https://australia-southeast1-5tkroniexa-ts.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Australia', provider: 'GCP' },
+  { name: 'Australia (Melbourne)', url: 'https://australia-southeast2-5tkroniexa-km.a.run.app/api/ping', geography: 'Asia Pacific', region: 'Australia', provider: 'GCP' },
+  { name: 'Poland (Warsaw)', url: 'https://europe-central2-5tkroniexa-lm.a.run.app/api/ping', geography: 'Europe', region: 'Poland', provider: 'GCP' },
+  { name: 'Finland (Hamina)', url: 'https://europe-north1-5tkroniexa-lz.a.run.app/api/ping', geography: 'Europe', region: 'Finland', provider: 'GCP' },
+  { name: 'Spain (Madrid)', url: 'https://europe-southwest1-5tkroniexa-no.a.run.app/api/ping', geography: 'Europe', region: 'Spain', provider: 'GCP' },
+  { name: 'Belgium (St. Ghislain)', url: 'https://europe-west1-5tkroniexa-ew.a.run.app/api/ping', geography: 'Europe', region: 'Belgium', provider: 'GCP' },
+  { name: 'Germany (Berlin)', url: 'https://europe-west10-5tkroniexa-oe.a.run.app/api/ping', geography: 'Europe', region: 'Germany', provider: 'GCP' },
+  { name: 'Italy (Turin)', url: 'https://europe-west12-5tkroniexa-og.a.run.app/api/ping', geography: 'Europe', region: 'Italy', provider: 'GCP' },
+  { name: 'UK (London)', url: 'https://europe-west2-5tkroniexa-nw.a.run.app/api/ping', geography: 'Europe', region: 'United Kingdom', provider: 'GCP' },
+  { name: 'Germany (Frankfurt)', url: 'https://europe-west3-5tkroniexa-ey.a.run.app/api/ping', geography: 'Europe', region: 'Germany', provider: 'GCP' },
+  { name: 'Netherlands (Eemshaven)', url: 'https://europe-west4-5tkroniexa-ez.a.run.app/api/ping', geography: 'Europe', region: 'Netherlands', provider: 'GCP' },
+  { name: 'Switzerland (Zürich)', url: 'https://europe-west6-5tkroniexa-oa.a.run.app/api/ping', geography: 'Europe', region: 'Switzerland', provider: 'GCP' },
+  { name: 'Italy (Milan)', url: 'https://europe-west8-5tkroniexa-oc.a.run.app/api/ping', geography: 'Europe', region: 'Italy', provider: 'GCP' },
+  { name: 'France (Paris)', url: 'https://europe-west9-5tkroniexa-od.a.run.app/api/ping', geography: 'Europe', region: 'France', provider: 'GCP' },
+  { name: 'Qatar (Doha)', url: 'https://me-central1-5tkroniexa-ww.a.run.app/api/ping', geography: 'Middle East', region: 'Qatar', provider: 'GCP' },
+  { name: 'Saudi Arabia (Dammam)', url: 'https://me-central2-5tkroniexa-wx.a.run.app/api/ping', geography: 'Middle East', region: 'Saudi Arabia', provider: 'GCP' },
+  { name: 'Israel (Tel Aviv)', url: 'https://me-west1-5tkroniexa-zf.a.run.app/api/ping', geography: 'Middle East', region: 'Israel', provider: 'GCP' },
+  { name: 'Canada (Montreal)', url: 'https://northamerica-northeast1-5tkroniexa-nn.a.run.app/api/ping', geography: 'North America', region: 'Canada', provider: 'GCP' },
+  { name: 'Canada (Toronto)', url: 'https://northamerica-northeast2-5tkroniexa-pd.a.run.app/api/ping', geography: 'North America', region: 'Canada', provider: 'GCP' },
+  { name: 'Brazil (São Paulo)', url: 'https://southamerica-east1-5tkroniexa-rj.a.run.app/api/ping', geography: 'South America', region: 'Brazil', provider: 'GCP' },
+  { name: 'Chile (Santiago)', url: 'https://southamerica-west1-5tkroniexa-rj.a.run.app/api/ping', geography: 'South America', region: 'Chile', provider: 'GCP' },
+  { name: 'USA (Iowa)', url: 'https://us-central1-5tkroniexa-uc.a.run.app/api/ping', geography: 'North America', region: 'United States', provider: 'GCP' },
+  { name: 'USA (South Carolina)', url: 'https://us-east1-5tkroniexa-ue.a.run.app/api/ping', geography: 'North America', region: 'United States', provider: 'GCP' },
+  { name: 'USA (Northern Virginia)', url: 'https://us-east4-5tkroniexa-uk.a.run.app/api/ping', geography: 'North America', region: 'United States', provider: 'GCP' },
+  { name: 'USA (Ohio)', url: 'https://us-east5-5tkroniexa-ul.a.run.app/api/ping', geography: 'North America', region: 'United States', provider: 'GCP' },
+  { name: 'USA (Texas)', url: 'https://us-south1-5tkroniexa-vp.a.run.app/api/ping', geography: 'North America', region: 'United States', provider: 'GCP' },
+  { name: 'USA (Oregon)', url: 'https://us-west1-5tkroniexa-uw.a.run.app/api/ping', geography: 'North America', region: 'United States', provider: 'GCP' },
+  { name: 'USA (California)', url: 'https://us-west2-5tkroniexa-wl.a.run.app/api/ping', geography: 'North America', region: 'United States', provider: 'GCP' },
+  { name: 'USA (Utah)', url: 'https://us-west3-5tkroniexa-wm.a.run.app/api/ping', geography: 'North America', region: 'United States', provider: 'GCP' },
+  { name: 'USA (Nevada)', url: 'https://us-west4-5tkroniexa-wn.a.run.app/api/ping', geography: 'North America', region: 'United States', provider: 'GCP' },
 ];
 
 // MeasurementResult 用于表示一次延迟测量的结果
@@ -67,8 +136,10 @@ interface MeasurementResult {
 
 // 根据geography进行渲染
 interface LatencyMeasureProps {
-  region: string
-  onRefresh: () => void
+  region: string;
+  provider: string;
+  onRefresh: () => void;
+  className?: string; // 添加这行以接受 className prop
 }
 
 // DataCenterStatus 用于表示数据中心的状态，包括其 name、url、geography、region、measurements、medianLatency、status 和可选的 errorMessage。
@@ -90,15 +161,27 @@ const BATCH_SIZE = 5
 const DELAY_BETWEEN_BATCHES = 1000 // 1 second
 const DELAY_BETWEEN_MEASUREMENTS = 200 // 200ms between each measurement
 
-export default function LatencyMeasure({ region, onRefresh }: LatencyMeasureProps) {
+// 添加一个新的函数来决定延迟的颜色
+const getLatencyColor = (latency: number | null) => {
+  if (latency === null) return 'text-gray-500';
+  if (latency < 300) return 'text-green-500';
+  if (latency < 500) return 'text-yellow-500';
+  return 'text-red-500';
+};
+
+export default function LatencyMeasure({ region, provider, onRefresh, className }: LatencyMeasureProps){
   const [dataCenterStatuses, setDataCenterStatuses] = useState<DataCenterStatus[]>([])
   const [isMeasuring, setIsMeasuring] = useState(false)
   const measurementCompleted = useRef(false)
 
   const initializeDataCenters = useCallback(() => {
-    const filteredDataCenters = region === 'All' 
-      ? dataCenters 
-      : dataCenters.filter(dc => dc.geography === region);
+    // 首先根据 provider 过滤数据中心
+    let filteredDataCenters = dataCenters.filter(dc => dc.provider === provider);
+
+    // 然后根据 region 进一步过滤
+    if (region !== 'All') {
+      filteredDataCenters = filteredDataCenters.filter(dc => dc.geography === region);
+    }
 
     setDataCenterStatuses(filteredDataCenters.map(dc => ({ 
       ...dc, 
@@ -108,11 +191,11 @@ export default function LatencyMeasure({ region, onRefresh }: LatencyMeasureProp
     })))
     setIsMeasuring(false)
     measurementCompleted.current = false
-  }, [region])
+  }, [region, provider])
 
   useEffect(() => {
     initializeDataCenters()
-  }, [initializeDataCenters, region])
+  }, [initializeDataCenters, region, provider])
 
   const measureLatency = useCallback(async (dataCenter: DataCenterStatus) => {
     console.log(`开始测量 ${dataCenter.name}`)
@@ -213,7 +296,9 @@ export default function LatencyMeasure({ region, onRefresh }: LatencyMeasureProp
 
   return (
     <div className="container mx-auto p-4 mt-4 w-full rounded-[8px] border border-solid">
-      <h2 className="text-2xl font-bold mb-4">{region} 区域测速结果</h2>
+      <h2 className="text-2xl font-bold mb-4">
+        {provider} - {region} Latency Test Results
+      </h2>
       <Table>
         <TableHeader>
           <TableRow>
@@ -230,7 +315,11 @@ export default function LatencyMeasure({ region, onRefresh }: LatencyMeasureProp
               <TableCell className="hidden md:table-cell">{dc.region}</TableCell>
               <TableCell>{dc.name}</TableCell>
               <TableCell>
-                {dc.status === 'complete' && `${dc.medianLatency?.toFixed(0)} ms`}
+                {dc.status === 'complete' && (
+                  <span className={getLatencyColor(dc.medianLatency)}>
+                    {dc.medianLatency?.toFixed(0)} ms
+                  </span>
+                )}
                 {dc.status === 'measuring' && <Loader2 className="h-4 w-4 animate-spin" />}
                 {dc.status === 'error' && <span className="text-red-500">Error</span>}
                 {dc.status === 'idle' && <span>-</span>}

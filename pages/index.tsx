@@ -5,9 +5,10 @@ import RestartButton from 'components/RestartButton'
 import LatencyMeasure from '@/components/LatencyMeasure'
 
 const regions = ['All', 'Asia Pacific', 'North America', 'Europe', 'South America', 'Africa', 'China']
-
+const cloudProviders = [ 'AWS', 'Azure', 'GCP']
 export default function Home() {
   const [selectedRegion, setSelectedRegion] = useState('All')
+  const [selectedProvider, setSelectedProvider] = useState('AWS')
   const [refreshKey, setRefreshKey] = useState(0)
   
   const handleRestart = useCallback(() => {
@@ -17,6 +18,11 @@ export default function Home() {
 
   const handleRegionChange = useCallback((region: string) => {
     setSelectedRegion(region)
+    setRefreshKey(prevKey => prevKey + 1)
+  }, [])
+
+  const handleProviderChange = useCallback((provider: string) => {
+    setSelectedProvider(provider)
     setRefreshKey(prevKey => prevKey + 1)
   }, [])
 
@@ -80,12 +86,30 @@ export default function Home() {
       <main className="mx-auto px-4 py-8 w-full">
         <div className="mx-auto rounded-lg overflow-hidden w-11/12">
           <div className="p-4 overflow-x-auto">
-            <div className="flex items-center justify-start  pl-2 h-[64px] bg-white rounded-[8px] border border-solid">
+
+ {/* 云服务提供商选择组件 */}
+ <div className="flex items-center justify-between pl-2 py-2 bg-white rounded-[8px] border border-solid mb-4 w-full">
+              {cloudProviders.map((provider) => (
+                <button
+                  key={provider}
+                  className={`flex-1 px-3 py-2 mx-1 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    selectedProvider === provider
+                      ? "bg-blue-100 text-blue-600"
+                      : "text-gray-600 hover:bg-gray-100"
+                  } sm:text-base`}
+                  onClick={() => handleProviderChange(provider)}
+                >
+                  {provider}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center justify-start pl-2 h-[64px] bg-white rounded-[8px] border border-solid">
               {/* Show 2 buttons on small screens, 4 on medium screens, and 6 on large screens */}
               {regions.slice(0, 4).map((region) => (
                 <button
                   key={region}
-                  className={`px-3 py-2 rounded-md text-sm font-medium ${
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     selectedRegion === region
                       ? "bg-blue-100 text-blue-600"
                       : "text-gray-600 hover:bg-gray-100"
@@ -100,7 +124,7 @@ export default function Home() {
                 {regions.slice(4, 5).map((region) => (
                   <button
                     key={region}
-                    className={`px-3 py-2 rounded-md text-sm font-medium ${
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                       selectedRegion === region
                         ? "bg-blue-100 text-blue-600"
                         : "text-gray-600 hover:bg-gray-100"
@@ -116,7 +140,7 @@ export default function Home() {
                 {regions.slice(5).map((region) => (
                   <button
                     key={region}
-                    className={`px-3 py-2 rounded-md text-sm font-medium ${
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                       selectedRegion === region
                         ? "bg-blue-100 text-blue-600"
                         : "text-gray-600 hover:bg-gray-100"
@@ -134,8 +158,10 @@ export default function Home() {
             </div>
 
             <LatencyMeasure 
+            className='flex flex-grow'
               key={refreshKey} 
-              region={selectedRegion} 
+              region={selectedRegion}
+              provider={selectedProvider}
               onRefresh={handleRestart}
             />
           </div>
